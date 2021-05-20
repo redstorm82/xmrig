@@ -159,7 +159,9 @@ else()
         )
 
     if (XMRIG_OS_ANDROID)
-        set(EXTRA_LIBS pthread rt dl log)
+        #felix change
+        #set(EXTRA_LIBS pthread rt dl log)
+        set(EXTRA_LIBS dl log)
     elseif (XMRIG_OS_LINUX)
         list(APPEND SOURCES_OS
             src/crypto/common/LinuxMemory.h
@@ -173,7 +175,10 @@ else()
 endif()
 
 add_definitions(-DXMRIG_MINER_PROJECT -DXMRIG_JSON_SINGLE_LINE_ARRAY)
-add_definitions(-D__STDC_FORMAT_MACROS -DUNICODE -D_FILE_OFFSET_BITS=64)
+
+#felix change
+#add_definitions(-D__STDC_FORMAT_MACROS -DUNICODE -D_FILE_OFFSET_BITS=64)
+add_definitions(-D__STDC_FORMAT_MACROS -DUNICODE)
 
 find_package(UV REQUIRED)
 
