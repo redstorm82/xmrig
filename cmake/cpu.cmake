@@ -27,7 +27,7 @@ if (ARM_TARGET AND ARM_TARGET GREATER 6)
     if (ARM_TARGET EQUAL 8)
         set(XMRIG_ARMv8 ON)
         add_definitions(/DXMRIG_ARMv8)
-        add_definitions(/D__aarch64__)
+        add_definitions(-D__aarch64__)
         CHECK_CXX_COMPILER_FLAG(-march=armv8-a+crypto XMRIG_ARM_CRYPTO)
 
         if (XMRIG_ARM_CRYPTO)
